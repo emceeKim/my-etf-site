@@ -7,7 +7,7 @@ import {
   CATEGORY_DESC,
   PORTFOLIO_TYPES,
   type ETFItem,
-} from "@/data/etf-data";
+} from "@/app/data/etf-data";
 import ETFCard from "./ETFCard";
 import ETFDetail from "./ETFDetail";
 
