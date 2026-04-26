@@ -13,36 +13,36 @@ export default function Home() {
   ];
 
   const finalConclusion = {
-    phase: "둔화 초입",
-    phaseDesc: "Slowdown Phase",
+    phase: "AI 슈퍼사이클",
+    phaseDesc: "AI Supercycle Phase",
     portfolio: [
-      { ticker: "QQQ", name: "나스닥 100", pct: 40, reason: "AI 구조적 성장, PMI 무관 독립 모멘텀" },
-      { ticker: "SPY", name: "S&P 500", pct: 25, reason: "미국 경제 기초체력, 안정적 분산" },
-      { ticker: "IEF", name: "미국 국채 7-10년", pct: 25, reason: "금리 인하 사이클 수혜, 핵심 헤지" },
-      { ticker: "현금", name: "변동성 대응 유보", pct: 10, reason: "조정 시 추가 매수용" },
+      { ticker: "KODEX 반도체", name: "KODEX 미국반도체", pct: 40, reason: "HBM4 양산 본격화, AI 수요 구조적 성장 수혜" },
+      { ticker: "TIGER 나스닥", name: "TIGER 미국나스닥100", pct: 30, reason: "빅테크 AI 수익화 + 안정적 성장 코어 ETF" },
+      { ticker: "HANARO 전력", name: "HANARO 전력설비투자", pct: 20, reason: "AI 데이터센터 전력인프라 구조적 성장" },
+      { ticker: "ACE 배당", name: "ACE 미국배당다우존스", pct: 10, reason: "고배당 방어, 변동성 구간 완충재" },
     ],
-    principle: "지표와 섹터가 같은 방향을 가리킬 때만 진입",
+    principle: "AI 반도체 슈퍼사이클과 전력인프라가 같은 방향을 가리키는 지금이 진입 시점",
   };
-  const portfolioColors = ["bg-blue-500", "bg-blue-300", "bg-slate-400", "bg-gray-300"];
+  const portfolioColors = ["bg-blue-600", "bg-blue-400", "bg-orange-400", "bg-green-400"];
 
   const debateRounds = [
     {
       round: "Round 1",
       title: "현재 경기 국면 진단",
-      summary: "AI 4개 모델이 현재 경제 상황을 어떻게 읽는가",
-      content: "【거시분석가 AI】 PCE 2.7%로 목표치 상회, 실업률 4.4% 상승 추세, ISM PMI 수축권. 방어 섹터 비중 확대 필요.\n\n【모멘텀 분석가 AI】 PMI 수축이지만 AI 반도체 수요는 독립적 폭증 중. NVDA·TSMC 실적은 경기 사이클 이탈한 구조적 성장.\n\n【리스크 관리자 AI】 장단기금리차 역전 지속. 역전 후 12~18개월 내 침체 확률 70%. 헤지 비중 30% 이상 권고.\n\n【검증자 AI】 결론: 성장(QQQ) 50% + 방어(IEF) 30% + 현금 20% 혼합 포트폴리오가 현 국면에 최적.",
+      summary: "AI 4개 모델이 2026년 4월 시장을 어떻게 읽는가",
+      content: "【거시분석가 AI】 AI 슈퍼사이클 진입 확인. 미국 증시 강세 지속, 관세 영향 제한적. 단, 대중국 반도체 수출 규제·달러 환율·금리 방향성은 주요 리스크.\n\n【모멘텀 분석가 AI】 HBM4 양산 본격화로 메모리 반도체 사이클 본격 상승. KODEX 미국반도체, TIGER AI반도체TOP10 모멘텀 최상. 지금이 핵심 진입 구간.\n\n【리스크 관리자 AI】 AI 집중 편입은 변동성 위험. 고배당(ACE 배당)으로 포트폴리오 하단을 받치고, 전력인프라로 분산 필요. 한 ETF 30% 이상 집중 지양.\n\n【검증자 AI】 결론: 공격형(반도체 40%) + 성장형(나스닥 30%) + 인프라(전력 20%) + 방어(배당 10%) 균형형 포트폴리오 채택.",
     },
     {
       round: "Round 2",
-      title: "섹터 로테이션 전략 충돌",
-      summary: "어느 섹터에 지금 돈을 넣어야 하는가",
-      content: "【거시분석가 AI】 경기 둔화 섹터 로테이션 공식: 헬스케어(XLV) > 유틸리티(XLU) > 필수소비재(XLP). 금리 인하 시 채권(IEF)도 매력 상승.\n\n【모멘텀 분석가 AI】 섹터 로테이션 공식은 AI 혁명 이전 프레임. AI 인프라 투자는 경기 사이클과 무관. SOXX·QQQ 비중 확대.\n\n【리스크 관리자 AI】 AI ETF를 보고 사는 것 자체가 편향된 판단. 지표와 섹터가 같은 방향을 가리킬 때만 진입.\n\n【검증자 AI】 최종 조율: QQQ 40% + XLV 25% + IEF 25% + 현금 10%.",
+      title: "반도체 vs 전력인프라 핵심 논쟁",
+      summary: "AI 수혜의 중심축은 어디인가",
+      content: "【거시분석가 AI】 AI 데이터센터 전력 수요 급증. LS ELECTRIC·효성중공업·HD현대일렉트릭의 미국·유럽 수출 성장률 확대. HANARO 전력설비는 중장기 수혜 확실.\n\n【모멘텀 분석가 AI】 전력인프라 동의. 그러나 단기 모멘텀 최강은 반도체. KODEX 미국반도체와 TIGER AI반도체TOP10이 3개월 수익률 상위권. 선택이 아닌 병행이 정답.\n\n【리스크 관리자 AI】 반도체 집중 리스크: 대중국 수출 규제 강화 시 변동성 확대 가능. TIGER 나스닥100으로 반도체 외 빅테크 분산 필요.\n\n【검증자 AI】 최종 조율: 반도체(40%) + 나스닥(30%) + 전력(20%) + 배당(10%). 리스크 헤지와 성장 동시 포착.",
     },
     {
       round: "Round 3",
-      title: "방위산업 vs 헬스케어",
-      summary: "2026년 불확실성 헤지 수단 논쟁",
-      content: "【거시분석가 AI】 지정학적 불확실성(트럼프 관세, 대만) 고조로 방위산업 ETF(ITA) 주목. NATO 국방비·미국 국방예산 구조적 수혜.\n\n【모멘텀 분석가 AI】 방위산업 동의. 단, 헬스케어(XLV)도 병행 필요. 고령화+AI 신약 개발로 경기 방어+성장 동시 포착 가능.\n\n【리스크 관리자 AI】 방위산업은 정책 리스크 큼. 헬스케어가 더 안정적. IEF(국채)가 진짜 헤지.\n\n【검증자 AI】 결론: 방위산업 소량 편입 OK. 핵심 헤지는 IEF. 헬스케어는 QQQ 보완재로 10~15% 편입 권고.",
+      title: "국내 상장 ETF 투자 전략",
+      summary: "연금·ISA 계좌 최적 활용법",
+      content: "【거시분석가 AI】 이달 5선 모두 국내 상장 ETF. 연금저축·IRP 계좌에서 세제 혜택 + 원화 투자 가능. TIGER 나스닥100(133690)과 ACE 배당(402970)은 연금 계좌 대표 종목.\n\n【모멘텀 분석가 AI】 KODEX 미국반도체(379800), TIGER AI반도체TOP10(476040)은 공격적 성장 계좌(ISA·일반)에 적합. 환노출 방식으로 달러 강세 구간 추가 수익 가능.\n\n【리스크 관리자 AI】 분산 포인트: 5개 ETF가 서로 다른 섹터와 성향. 안정형은 배당+나스닥, 공격형은 반도체+전력, 균형형은 전체 혼합.\n\n【검증자 AI】 결론: 월 적립식 매수 시 이 5개 ETF 조합이 세제 혜택·분산·성장 3박자를 모두 충족. 매월 리밸런싱 권고.",
     },
   ];
 
@@ -62,15 +62,19 @@ export default function Home() {
   };
 
   const etfs = [
-    { rank: "1위", rankColor: "text-yellow-500 bg-yellow-50", ticker: "QQQ", name: "나스닥 100 ETF", ret: "+18.4%", comment: "AI 구조적 성장, 반도체 섹터 주도 — 포트폴리오 40% 권고" },
-    { rank: "2위", rankColor: "text-blue-400 bg-blue-50", ticker: "SPY", name: "S&P 500 ETF", ret: "+12.1%", comment: "미국 경제 연착륙 기대, 안정적 분산 — 포트폴리오 25% 권고" },
-    { rank: "3위", rankColor: "text-gray-400 bg-gray-100", ticker: "IEF", name: "미국 국채 7-10년 ETF", ret: "+4.2%", comment: "금리 인하 사이클 수혜, 핵심 헤지 수단 — 포트폴리오 25% 권고" },
+    { rank: "1위", rankColor: "text-yellow-500 bg-yellow-50", ticker: "KODEX 미국반도체", name: "삼성자산운용 · 379800 · 공격형 🔴", ret: "+28.7%", comment: "HBM4 양산 본격화 — 엔비디아·TSMC·브로드컴 집중 편입. AI 수요 구조적 성장 수혜" },
+    { rank: "2위", rankColor: "text-blue-400 bg-blue-50", ticker: "TIGER 미국나스닥100", name: "미래에셋 · 133690 · 성장형 🟠", ret: "+17.9%", comment: "빅테크 AI 수익화 코어 ETF — 연금저축·IRP·ISA 가능. 총보수 0.07% 최저 수준" },
+    { rank: "3위", rankColor: "text-orange-400 bg-orange-50", ticker: "HANARO 전력설비투자", name: "NH-Amundi · 466940 · 성장형 🟠", ret: "+22.1%", comment: "LS ELECTRIC·효성중공업·HD현대일렉트릭 집중 편입 — AI 데이터센터 전력인프라 수혜" },
+    { rank: "4위", rankColor: "text-green-500 bg-green-50", ticker: "ACE 미국배당다우존스", name: "한국투자신탁 · 402970 · 안정형 🟢", ret: "+11.4%", comment: "미국판 SCHD 전략 — 배당 성장 + 안정적 현금흐름. 시장 변동성 방어 포지션" },
+    { rank: "5위", rankColor: "text-purple-500 bg-purple-50", ticker: "TIGER AI반도체TOP10", name: "미래에셋 · 476040 · 공격형 🔴", ret: "+31.4%", comment: "국내 AI 반도체 밸류체인 TOP10 — SK하이닉스·삼성전자·한미반도체. HBM 직접 수혜주" },
   ];
 
   const returnsData = [
-    { ticker: "QQQ", name: "나스닥 100", m1: "+3.2%", m6: "+9.1%", y1: "+18.4%" },
-    { ticker: "SPY", name: "S&P 500", m1: "+2.1%", m6: "+6.4%", y1: "+12.1%" },
-    { ticker: "IEF", name: "미국 국채", m1: "+0.8%", m6: "+2.3%", y1: "+4.2%" },
+    { ticker: "KODEX 미국반도체", name: "AI 반도체 (379800)", m1: "+5.2%", m6: "+15.3%", y1: "+28.7%" },
+    { ticker: "TIGER AI반도체TOP10", name: "국내 AI 반도체 (476040)", m1: "+6.1%", m6: "+18.2%", y1: "+31.4%" },
+    { ticker: "HANARO 전력설비", name: "AI 전력인프라 (466940)", m1: "+4.1%", m6: "+12.4%", y1: "+22.1%" },
+    { ticker: "TIGER 미국나스닥100", name: "미국 빅테크 (133690)", m1: "+3.0%", m6: "+8.7%", y1: "+17.9%" },
+    { ticker: "ACE 미국배당다우존스", name: "미국 고배당 (402970)", m1: "+1.8%", m6: "+5.2%", y1: "+11.4%" },
   ];
 
   return (
