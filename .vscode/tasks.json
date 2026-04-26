@@ -1,0 +1,26 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Next.js Dev Server",
+      "type": "shell",
+      "command": "npm run dev -- --no-turbopack",
+      "options": {
+        "cwd": "C:\\Users\\MCMJ_KIM\\Desktop\\my-etf-site",
+        "shell": {
+          "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+          "args": ["-Command"]
+        }
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "isBackground": true
+    }
+  ]
+}
