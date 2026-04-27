@@ -1,13 +1,9 @@
-import os
 import yfinance as yf
 from supabase import create_client
 from datetime import date
-
+import os
 SUPABASE_URL = os.environ.get("SUPABASE_URL")
 SUPABASE_KEY = os.environ.get("SUPABASE_SECRET_KEY")
-supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
-
-today = str(date.today())
 
 # ── ETF 가격 수집
 tickers = ["QQQ", "SPY", "IEF"]
