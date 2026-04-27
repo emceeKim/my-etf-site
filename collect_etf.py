@@ -2,12 +2,27 @@ import yfinance as yf
 from supabase import create_client
 from datetime import date
 import os
+import sys
+
+# ── 환경변수 로드 + 검증
 SUPABASE_URL = os.environ.get("SUPABASE_URL")
 SUPABASE_KEY = os.environ.get("SUPABASE_SECRET_KEY")
 
+if not SUPABASE_URL or not SUPABASE_KEY:
+    print("[FATAL] 환경변수 누락: SUPABASE_URL 또는 SUPABASE_SECRET_KEY")
+    sys.exit(1)
+
+# ── Supabase 클라이언트 생성 (★ 누락되었던 핵심 라인)
+supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
+
+# ── 오늘 날짜 (★ 누락되었던 today 변수)
+today = date.today().isoformat()  # "2026-04-27" 형식
+
+# ── 에러 카운터 (워크플로우 실패 처리용)
+error_count = 0
+
 # ── ETF 가격 수집
 tickers = ["QQQ", "SPY", "IEF"]
-
 for ticker in tickers:
     try:
         t = yf.Ticker(ticker)
@@ -25,6 +40,7 @@ for ticker in tickers:
         supabase.table("etf_prices").upsert(row, on_conflict="ticker,date").execute()
         print(f"[OK] {ticker}: ${price} ({change:+.2f}%)")
     except Exception as e:
+        error_count += 1
         print(f"[ERROR] {ticker}: {e}")
 
 # ── 경제지표 수집
@@ -35,7 +51,6 @@ indicators = {
     "달러 인덱스":        "DX-Y.NYB",
     "VIX 공포지수":      "^VIX",
 }
-
 for name, symbol in indicators.items():
     try:
         t    = yf.Ticker(symbol)
@@ -53,6 +68,12 @@ for name, symbol in indicators.items():
         supabase.table("economic_indicators").upsert(row, on_conflict="name,date").execute()
         print(f"[OK] {name}: {value} ({status})")
     except Exception as e:
+        error_count += 1
         print(f"[ERROR] {name}: {e}")
 
-print("완료!")
+# ── 최종 결과 검증 (★ 본질적 개선)
+if error_count > 0:
+    print(f"❌ 총 {error_count}건의 수집 실패 발생")
+    sys.exit(1)  # GitHub Actions가 빨간색 X로 표시하게 됨
+
+print(f"✅ 완료! (오늘 날짜: {today})")
