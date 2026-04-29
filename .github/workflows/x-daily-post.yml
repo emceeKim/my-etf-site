@@ -1,0 +1,42 @@
+name: X Daily Thread Post
+
+on:
+  schedule:
+    - cron: '0 7 * * 1-5'   # 평일 오전 16시 KST (UTC 07:00)
+  workflow_dispatch:          # 수동 실행 (테스트용)
+
+jobs:
+  post-to-x:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 코드 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Python 설치
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: 의존성 설치
+        run: pip install -r scripts/x_automation/requirements.txt
+
+      - name: STEP 1 — ETF 데이터 수집
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+        run: python scripts/x_automation/fetch_etf_data.py
+
+      # ⏭ STEP 2 — ANTHROPIC_API_KEY 등록 후 주석 해제
+      # - name: STEP 2 — Claude로 스레드 생성
+      #   env:
+      #     ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      #   run: python scripts/x_automation/generate_thread.py
+
+      - name: STEP 3 — X에 발행
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+        run: python scripts/x_automation/post_to_x.py
