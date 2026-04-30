@@ -10,6 +10,7 @@ export default function Home() {
     { id: "model", label: "MIC AI Model" },
     { id: "etf", label: "이달의 ETF" },
     { id: "returns", label: "수익률 비교" },
+    { id: "etf-info", label: "ETF 정보" },
   ];
 
   const finalConclusion = {
@@ -350,6 +351,189 @@ export default function Home() {
                   <div className="text-right text-green-500 font-semibold text-sm">{etf.y1}</div>
                 </div>
               ))}
+            </div>
+          </div>
+        )}
+
+
+        {activeMenu === "etf-info" && (
+          <div>
+            <div className="mb-6">
+              <span className="inline-block bg-blue-50 text-blue-500 text-xs font-semibold px-3 py-1 rounded-full mb-2">ETF Directory</span>
+              <h1 className="text-xl font-bold text-gray-900 mb-1">ETF 분류 체계</h1>
+              <p className="text-gray-400 text-sm">대분류 → 중분류 → 소분류 계층으로 정리한 ETF 가이드</p>
+            </div>
+
+            {[
+              {
+                major: "주식",
+                color: "bg-blue-600",
+                lightColor: "bg-blue-50",
+                textColor: "text-blue-700",
+                borderColor: "border-blue-200",
+                subs: [
+                  { mid: "미국 전체시장", items: [
+                    { minor: "대형주", etfs: "SPY · VOO · IVV" },
+                    { minor: "중형주", etfs: "IJH · MDY" },
+                    { minor: "소형주", etfs: "IWM · VB" },
+                    { minor: "전체시장", etfs: "VTI · ITOT" },
+                  ]},
+                  { mid: "스타일", items: [
+                    { minor: "성장주", etfs: "QQQ · VUG" },
+                    { minor: "가치주", etfs: "VTV · IWD" },
+                    { minor: "배당", etfs: "SCHD · VYM" },
+                    { minor: "배당성장", etfs: "VIG · DGRO" },
+                  ]},
+                  { mid: "섹터", items: [
+                    { minor: "기술", etfs: "XLK · VGT" },
+                    { minor: "반도체", etfs: "SOXX · SMH" },
+                    { minor: "헬스케어", etfs: "XLV · VHT" },
+                    { minor: "금융", etfs: "XLF · VFH" },
+                    { minor: "에너지", etfs: "XLE · VDE" },
+                    { minor: "소비재-필수", etfs: "XLP · VDC" },
+                    { minor: "소비재-임의", etfs: "XLY · VCR" },
+                    { minor: "산업재", etfs: "XLI · VIS" },
+                    { minor: "유틸리티", etfs: "XLU · VPU" },
+                    { minor: "통신", etfs: "XLC · VOX" },
+                    { minor: "소재", etfs: "XLB · VAW" },
+                  ]},
+                  { mid: "테마", items: [
+                    { minor: "AI·클라우드", etfs: "BOTZ · AIQ" },
+                    { minor: "클린에너지", etfs: "ICLN · QCLN" },
+                    { minor: "사이버보안", etfs: "HACK · CIBR" },
+                    { minor: "바이오테크", etfs: "XBI · ARKG" },
+                    { minor: "로보틱스", etfs: "ROBO · IRBO" },
+                    { minor: "우주·방산", etfs: "ITA · ARKX" },
+                  ]},
+                  { mid: "글로벌", items: [
+                    { minor: "선진국", etfs: "VEA · EFA" },
+                    { minor: "신흥국", etfs: "VWO · EEM" },
+                    { minor: "중국", etfs: "FXI · KWEB" },
+                    { minor: "인도", etfs: "INDA · PIN" },
+                    { minor: "전세계", etfs: "VT · ACWI" },
+                  ]},
+                ],
+              },
+              {
+                major: "채권",
+                color: "bg-red-500",
+                lightColor: "bg-red-50",
+                textColor: "text-red-700",
+                borderColor: "border-red-200",
+                subs: [
+                  { mid: "미국 국채", items: [
+                    { minor: "단기 (1-3년)", etfs: "SHY · VGSH" },
+                    { minor: "중기 (3-7년)", etfs: "IEF · VGIT" },
+                    { minor: "장기 (20년+)", etfs: "TLT · VGLT" },
+                    { minor: "물가연동 TIPS", etfs: "TIP · SCHP" },
+                  ]},
+                  { mid: "회사채", items: [
+                    { minor: "투자등급", etfs: "LQD · VCIT" },
+                    { minor: "하이일드", etfs: "HYG · JNK" },
+                  ]},
+                  { mid: "글로벌 채권", items: [
+                    { minor: "신흥국 채권", etfs: "EMB · VWOB" },
+                  ]},
+                ],
+              },
+              {
+                major: "원자재",
+                color: "bg-orange-500",
+                lightColor: "bg-orange-50",
+                textColor: "text-orange-700",
+                borderColor: "border-orange-200",
+                subs: [
+                  { mid: "귀금속", items: [
+                    { minor: "금", etfs: "GLD · IAU · SGOL" },
+                    { minor: "은", etfs: "SLV · PSLV" },
+                  ]},
+                  { mid: "에너지", items: [
+                    { minor: "원유", etfs: "USO · UCO" },
+                    { minor: "천연가스", etfs: "UNG" },
+                  ]},
+                  { mid: "복합", items: [
+                    { minor: "전체 원자재", etfs: "DJP · PDBC" },
+                  ]},
+                ],
+              },
+              {
+                major: "부동산",
+                color: "bg-green-600",
+                lightColor: "bg-green-50",
+                textColor: "text-green-700",
+                borderColor: "border-green-200",
+                subs: [
+                  { mid: "미국 리츠", items: [
+                    { minor: "전체", etfs: "VNQ · SCHH" },
+                    { minor: "주거용", etfs: "REZ" },
+                    { minor: "상업용", etfs: "XLRE" },
+                  ]},
+                  { mid: "글로벌 리츠", items: [
+                    { minor: "전세계 부동산", etfs: "VNQI · HAUZ" },
+                  ]},
+                ],
+              },
+              {
+                major: "레버리지 / 인버스",
+                color: "bg-red-800",
+                lightColor: "bg-red-50",
+                textColor: "text-red-800",
+                borderColor: "border-red-300",
+                subs: [
+                  { mid: "레버리지", items: [
+                    { minor: "2배", etfs: "SSO · QLD" },
+                    { minor: "3배", etfs: "UPRO · TQQQ · SOXL" },
+                  ]},
+                  { mid: "인버스", items: [
+                    { minor: "1배", etfs: "SH · PSQ" },
+                    { minor: "3배", etfs: "SPXS · SQQQ · SOXS" },
+                  ]},
+                ],
+              },
+              {
+                major: "멀티에셋",
+                color: "bg-indigo-600",
+                lightColor: "bg-indigo-50",
+                textColor: "text-indigo-700",
+                borderColor: "border-indigo-200",
+                subs: [
+                  { mid: "자산배분", items: [
+                    { minor: "보수적", etfs: "AOK" },
+                    { minor: "중립", etfs: "AOM" },
+                    { minor: "공격적", etfs: "AOA" },
+                    { minor: "올웨더", etfs: "RPAR" },
+                  ]},
+                ],
+              },
+            ].map((cat) => (
+              <div key={cat.major} className="mb-5 bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+                {/* 대분류 헤더 */}
+                <div className={`${cat.color} px-5 py-3`}>
+                  <span className="text-white font-bold text-sm">대분류 · {cat.major}</span>
+                </div>
+                {/* 중분류/소분류 */}
+                <div className="p-4 flex flex-col gap-3">
+                  {cat.subs.map((sub) => (
+                    <div key={sub.mid}>
+                      <div className={`text-xs font-bold ${cat.textColor} mb-2 px-2 py-1 ${cat.lightColor} rounded-lg inline-block`}>
+                        중분류 · {sub.mid}
+                      </div>
+                      <div className="grid grid-cols-2 md:grid-cols-3 gap-1.5 mt-1">
+                        {sub.items.map((item) => (
+                          <div key={item.minor} className={`border ${cat.borderColor} rounded-xl px-3 py-2`}>
+                            <div className="text-xs font-semibold text-gray-700">{item.minor}</div>
+                            <div className="text-xs text-gray-400 mt-0.5 font-mono">{item.etfs}</div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+
+            <div className="bg-yellow-50 border border-yellow-200 rounded-2xl p-4 text-xs text-yellow-700">
+              ⚠️ 레버리지/인버스 ETF는 단기 트레이딩 목적으로 설계된 상품입니다. 장기 보유 시 복리 손실이 발생할 수 있습니다.
             </div>
           </div>
         )}
