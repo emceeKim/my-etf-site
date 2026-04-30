@@ -2,8 +2,8 @@ name: X Daily Post
 
 on:
   schedule:
-    # 매일 KST 08:30 발행 (UTC 23:30)
-    - cron: '30 23 * * *'
+    # 매일 KST 08:00 트리거 (UTC 23:00) → 최대 60분 랜덤 딜레이로 8:00~9:00 사이 발행
+    - cron: '0 23 * * *'
   workflow_dispatch:  # 수동 실행 (테스트용)
 
 jobs:
@@ -11,6 +11,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: 랜덤 딜레이 (0~60분)
+        if: github.event_name == 'schedule'
+        run: |
+          DELAY=$((RANDOM % 3600))
+          echo "⏱ ${DELAY}초 대기 후 발행 (최대 60분)"
+          sleep $DELAY
+
       - name: 코드 체크아웃
         uses: actions/checkout@v4
 
