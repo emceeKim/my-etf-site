@@ -1,0 +1,39 @@
+name: X Daily Post
+
+on:
+  schedule:
+    # 매일 KST 08:00 트리거 (UTC 23:00) → 최대 60분 랜덤 딜레이로 8:00~9:00 사이 발행
+    - cron: '0 23 * * *'
+  workflow_dispatch:  # 수동 실행 (테스트용)
+
+jobs:
+  post-to-x:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 랜덤 딜레이 (0~60분)
+        if: github.event_name == 'schedule'
+        run: |
+          DELAY=$((RANDOM % 3600))
+          echo "⏱ ${DELAY}초 대기 후 발행 (최대 60분)"
+          sleep $DELAY
+
+      - name: 코드 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Python 설치
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: 의존성 설치
+        run: pip install requests requests-oauthlib
+
+      - name: Notion → X 발행
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+        run: python scripts/x_automation/post_from_notion.py

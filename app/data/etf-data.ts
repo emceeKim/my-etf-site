@@ -402,21 +402,33 @@ export const ETF_DATABASE: ETFItem[] = [
 export const THIS_MONTH_PICKS = [
   {
     rank: "1위",
-    ticker: "QQQ",
-    comment: "AI 구조적 성장, 반도체 섹터 주도 — 포트폴리오 40% 권고",
-    aiSummary: "4개 AI 중 3개가 매수 의견. 모멘텀 분석가 AI가 가장 강하게 주장.",
+    ticker: "KODEX 미국반도체",
+    comment: "HBM4 양산 본격화 — AI 수요 구조적 성장 수혜. 공격형 포트폴리오 40% 권고",
+    aiSummary: "4개 AI 전원 매수. 모멘텀 분석가 AI가 '지금이 핵심 진입 구간'으로 강조.",
   },
   {
     rank: "2위",
-    ticker: "SPY",
-    comment: "미국 경제 연착륙 기대, 안정적 분산 — 포트폴리오 25% 권고",
-    aiSummary: "전원 동의. 위험 관리자 AI가 핵심 베이스로 강조.",
+    ticker: "TIGER 미국나스닥100",
+    comment: "빅테크 AI 수익화 코어 ETF — 연금·IRP 가능, 총보수 0.07% 최저 수준",
+    aiSummary: "안정형·균형형 모두 동의. 검증자 AI가 핵심 성장 코어로 채택.",
   },
   {
     rank: "3위",
-    ticker: "IEF",
-    comment: "금리 인하 사이클 수혜, 핵심 헤지 수단 — 포트폴리오 25% 권고",
-    aiSummary: "거시분석가 AI와 위험 관리자 AI가 공동 추천.",
+    ticker: "HANARO 전력설비투자",
+    comment: "AI 데이터센터 전력인프라 수혜 — LS ELECTRIC·효성중공업·HD현대일렉트릭",
+    aiSummary: "거시분석가 AI와 모멘텀 분석가 AI 공동 추천. 중장기 구조적 수혜 확실.",
+  },
+  {
+    rank: "4위",
+    ticker: "ACE 미국배당다우존스",
+    comment: "미국판 SCHD 전략 — 배당 성장 + 안정적 현금흐름. 안정형 60% 권고",
+    aiSummary: "리스크 관리자 AI 강력 추천. 시장 변동성 확대 시 방어 포지션.",
+  },
+  {
+    rank: "5위",
+    ticker: "TIGER AI반도체TOP10",
+    comment: "국내 AI 반도체 밸류체인 TOP10 — SK하이닉스·삼성전자·한미반도체",
+    aiSummary: "모멘텀 분석가 AI 추천. 3개월 수익률 상위권, HBM 직접 수혜주.",
   },
 ];
 

@@ -1,4 +1,4 @@
-import { type ETFItem, type ETFSignal, type ETFRisk } from "@/data/etf-data";
+import { type ETFItem, type ETFSignal, type ETFRisk } from "@/app/data/etf-data";
 
 type Props = {
   etf: ETFItem;
